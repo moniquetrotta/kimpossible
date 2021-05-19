@@ -36,15 +36,21 @@ p {
 }
 
 .container {
-  border: 1px solid red;
-  height: 92vh;
   max-width: 1440px;
   margin: 0 auto;
   padding: 36px 16px;
-  overflow: hidden;
+  overflow: none;
+  height: 92vh;
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+@media screen and (max-width: 960px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    overflow: hidden;
+  }
 }
 
 .container-item1 {
@@ -55,7 +61,7 @@ p {
 }
 
 .container-item2 {
-  max-width: 570px;
+  max-width: 460px;
 }
 
 .flex {
@@ -75,8 +81,14 @@ p {
 }
 
 .kim {
-  width: 150%;
+  width: 120%;
   transform: translate3d(-250px, 0, 0);
+}
+@media screen and (max-width: 960px) {
+  .kim {
+    width: 100%;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 .btn {
@@ -157,6 +169,43 @@ p {
   width: 102%;
 }
 
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bg-video::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background: linear-gradient(90deg, #000000 0.64%, rgba(19, 13, 13, 0.625) 100.58%, rgba(255, 255, 255, 0) 101.21%), linear-gradient(269.65deg, #000000 14.55%, rgba(0, 0, 0, 0.520823) 49.2%, rgba(2, 0, 0, 0.101544) 83.85%, rgba(2, 0, 0, 0) 88.18%);
+}
+
+.bg-loader {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(225deg, black 0%, black 100%);
+  overflow: hidden;
+}
+
 header {
   width: 100%;
   padding-top: 16px;
@@ -183,6 +232,11 @@ header {
 }
 .nav-list li {
   margin-left: 24px;
+}
+@media screen and (max-width: 960px) {
+  .nav-list {
+    display: none;
+  }
 }
 
 .logo {
@@ -233,7 +287,102 @@ header {
   fill: #a5da0e;
   transform: translate3d(0, -1px, 0);
 }
+@media screen and (max-width: 960px) {
+  .nav-social {
+    display: none;
+  }
+}
 
+.bx {
+  display: none;
+  position: relative;
+}
+@media screen and (max-width: 960px) {
+  .bx {
+    display: block;
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+  }
+}
+.bx::after {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 15%;
+  width: 70%;
+  height: 6px;
+  background-color: #a5da0e;
+  border-radius: 20px;
+  transition: 1s ease;
+}
+.bx::before {
+  content: "";
+  position: absolute;
+  top: 60%;
+  left: 41%;
+  width: 45%;
+  height: 6px;
+  background-color: #a5da0e;
+  border-radius: 20px;
+  transition: 1s ease;
+}
+
+#bx:checked ~ label .bx::after {
+  transform: rotate(225deg);
+  width: 45%;
+  height: 6px;
+  top: 45%;
+  left: 15%;
+}
+
+#bx:checked ~ label .bx::before {
+  transform: rotate(-405deg);
+  width: 45%;
+  height: 6px;
+  top: 45%;
+  left: 15%;
+}
+
+.logo-kim {
+  fill: transparent;
+  -webkit-animation: logo-kim 10s ease infinite alternate;
+          animation: logo-kim 10s ease infinite alternate;
+}
+
+@-webkit-keyframes logo-kim {
+  0% {
+    stroke-width: 0;
+    stroke-dasharray: 1 100;
+    fill: transparent;
+  }
+  25% {
+    stroke-width: 5;
+    stroke-dasharray: 100 0;
+    fill: transparent;
+  }
+  60%, 100% {
+    stroke-width: 9;
+    fill: #a5da0e;
+  }
+}
+
+@keyframes logo-kim {
+  0% {
+    stroke-width: 0;
+    stroke-dasharray: 1 100;
+    fill: transparent;
+  }
+  25% {
+    stroke-width: 5;
+    stroke-dasharray: 100 0;
+    fill: transparent;
+  }
+  60%, 100% {
+    stroke-width: 9;
+    fill: #a5da0e;
+  }
+}
 .m-1 {
   margin: 8px;
 }

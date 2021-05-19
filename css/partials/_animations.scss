@@ -1,0 +1,20 @@
+.logo-kim {
+  fill: transparent;
+  animation: logo-kim 10s ease infinite alternate;
+}
+@keyframes logo-kim {
+  0% {
+    stroke-width: 0;
+    stroke-dasharray: 1 100;
+    fill: transparent;
+  }
+  25% {
+    stroke-width: 5;
+    stroke-dasharray: 100 0;
+    fill: transparent;
+  }
+  60%, 100% {
+    stroke-width: 9;
+    fill: $verde;
+  }
+}

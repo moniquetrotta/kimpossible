@@ -6,6 +6,14 @@
   box-sizing: border-box;
   font-family: "Mukta", sans-serif;
 }
+
+@mixin responsive (){
+  @media screen and (max-width: 960px){
+  @content;
+  }
+}
+
+
 @import 'partials/_colors.scss';
 body {
   width: 100%;
